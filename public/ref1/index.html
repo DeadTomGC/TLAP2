@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>It moves!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="javascript/movement.js"></script>
+    </head>
+    <body>
+        <img id="myImage" src="images/cannonball_2.png" alt="damn it">
+        <div>Trust me, it moves
+            <img id="object_1" src="images/cannonball_2.png" style="display:none" alt="damn it">
+            <button id="start_button" onclick="start();">Move it!</button>
+            <button id="stop_button" onclick="stopMain();">Stop it!</button>
+        </div>
+        <input id="speed" type="range" min="0" max="1000" style="width:300px">
+        <div>
+            <canvas id="can_1" style="border:1px solid #000000;position:absolute;top:100px;left:100px" width="500" height="500">
+        </div>
+        
+    </body>
+</html>
