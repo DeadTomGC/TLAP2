@@ -8,17 +8,18 @@ var x = 0;
 var y = 0;
 var vel = 0;
 var angle = 0;
-var slider;
+
+window.onload = start;
 
 function dropBall() {
-    accel = 0.01*slider.value;
+    accel = 0.01*100;
     vel = vel+accel;
     y = y+vel;
     if(y>400){
         y = 400;
         vel = 0;
     }
-    ctx.clearRect(0,0,500,500);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(img,Math.round(x),Math.round(y));
 }
 
@@ -27,11 +28,12 @@ var img;
 var ctx;
 var canvas;
 function start() {
-    slider = document.getElementById("speed");
-    canvas = document.getElementById("can_1");
+    canvas = document.getElementById("game_area");
     canvas.style.borderWidth = "5px";
     ctx = canvas.getContext("2d");
-    img = document.getElementById("object_1");
+    img = new Image(); // Preload an image
+    img.style="display:none";
+    img.src = "rec/cannonball_2.png";
     
     if (!run) {
         canvas.addEventListener("click",canClick,false);
