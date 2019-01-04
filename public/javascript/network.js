@@ -5,7 +5,7 @@
  */
 var serverAddress = 'ws://127.0.0.1:8080';
 var connection;
-
+var offsetX = 0;
 function connect() {
     window.WebSocket = window.WebSocket || window.MozWebSocket;
     connection = new WebSocket(serverAddress);
@@ -23,7 +23,7 @@ function connect() {
         // from server is json)
         try {
             var json = JSON.parse(message.data);
-            processMessage(message.type,json);
+            processMessage(json.type,json.data);
         } catch (e) {
             console.log('This doesn\'t look like a valid JSON: ',
                     message.data);
@@ -36,10 +36,14 @@ function connect() {
 function processMessage(type,data){
     if(type==="games"){
         processGameList(data);
+        return true;
     }
 }
 
 function processGameList(data){
+    for(var i=0;i<data.length;i=i+1){
+        data[i];
+    }
     return;
     
 }

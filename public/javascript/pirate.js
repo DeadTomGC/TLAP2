@@ -63,7 +63,8 @@ function canClick(e) {
     var x = e.clientX - rect.left - img.width/2;
     var y = e.clientY - rect.top- img.height/2;
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.drawImage(images.cannonball,Math.round(x),Math.round(y));
+    ctx.drawImage(images.cannonball,Math.round(x+offsetX),Math.round(y));
+    getGames();
     return;
 }
 
